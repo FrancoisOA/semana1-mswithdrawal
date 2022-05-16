@@ -1,0 +1,61 @@
+server:  servlet:    context-path: /cmr-business-serv-customer-payments-poc/v1
+
+spring:
+  application:
+    name: cmr-business-serv-customer-payments-poc
+  main:
+    allow-bean-definition-overriding: true   
+ 
+application:
+  maverick:
+    api: 
+      path: /cmr-business-serv-customer-payments-poc/v1
+  http-client:
+     uniquecustomer: 
+       base-url: 'http://mvr-support-serv-uniquecustomer-v1:8080'
+       connect-timeout: 5000
+       read-timeout: 5000
+       write-timeout: 5000    
+     claroclub:
+       base-url: 'http://mvr-support-serv-points-pclubds-v1:8080'
+       connect-timeout: 5000
+       read-timeout: 5000
+       write-timeout: 5000 
+     prepaid:
+       base-url: 'http://mvr-business-serv-prepaid-v1:8080/'
+       connect-timeout: 5000
+       read-timeout: 5000
+       write-timeout: 5000
+     postpaid:
+       base-url: 'http://mvr-business-serv-postpaid-v1:8080/'
+       connect-timeout: 5000
+       read-timeout: 5000
+       write-timeout: 5000     apitest:       base-url: 'http://localhost:8081/typicode'       connect-timeout: 5000       read-timeout: 5000       write-timeout: 5000     customer-payments:       base-url: 'https://negocio-dev.cla.pe/api/v1/pagosclientes'       connect-timeout: 5000       read-timeout: 5000       write-timeout: 5000
+  points:
+    id: btk_ptos1
+    name: Puntos disponibles
+    usageType: LEALTAD
+    product:
+      id: prd_ptos_1
+      name: Puntos disponibles
+    balance:
+      unit: PTOS 
+  state:
+    line: 1 
+    mock: mock      
+  comercial-info:
+    keyciclo: Ciclo
+    keyaccountiddisplayvalue: AccountIdDisplayValue
+    keyaccounttypedisplayvalue: AccountTypeDisplayValue
+  error:
+    errorTipolinea: MVR0001
+    errorPostPago: MVR0002
+    errorPrepago: MVR0003
+    errorUniqueCustomer: MVR0004
+                
+info:
+  project:
+    version: 1.0.0-SNAPSHOT
+    title: cmr-business-serv-customer-payments-poc-v1.0
+    description: Servicio que obtiene las consulta de saldos de los prepago, pospago o fijas
+log_level: INFO
